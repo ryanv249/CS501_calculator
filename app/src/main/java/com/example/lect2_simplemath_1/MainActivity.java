@@ -46,20 +46,60 @@ btnCalculate.setOnClickListener(new View.OnClickListener() {
         RadioButton div = (RadioButton)findViewById(R.id.div);
         RadioButton mod = (RadioButton)findViewById(R.id.mod);
 
-        Double val_2 = Double.parseDouble(edtOp2.getText().toString());
-        Double val_1 = Double.parseDouble(edtOp1.getText().toString());
-        Double funct = 0.0;
-        if(Add.isChecked())
-            funct = CalculatorFunctions.addition(val_1,val_2);
-        else if (sub.isChecked())
-            funct = CalculatorFunctions.subtraction(val_1,val_2);
-        else if (mult.isChecked())
-            funct = CalculatorFunctions.mutliplication(val_1,val_2);
-        else if (div.isChecked())
-            funct = CalculatorFunctions.division(val_1,val_2);
-        else if (mod.isChecked())
-            funct = CalculatorFunctions.modula(val_1,val_2);
-        tvAnswer.setText(funct.toString());
+        String temp1 = edtOp1.getText().toString();
+        String temp2 = edtOp2.getText().toString();
+        int decimal = 0;
+        boolean result1 = true;
+        for(int i = 0 ; i < temp1.length(); i++) {
+            if (Character.isDigit(temp1.charAt(i)) == false) {
+                if (temp1.charAt(i) == '.') {
+                    decimal += 1;
+                    if (decimal <= 1)
+                        continue;
+                    result1 = false;
+                    break;
+                }
+                result1 = false;
+                break;
+            }
+        }
+
+        decimal = 0;
+        boolean result2 = true;
+        for(int i = 0 ; i < temp2.length(); i++) {
+            if (Character.isDigit(temp2.charAt(i)) == false) {
+                if (temp2.charAt(i) == '.') {
+                    decimal += 1;
+                    if (decimal <= 1)
+                        continue;
+                    result2 = false;
+                    break;
+                }
+                result2 = false;
+                break;
+            }
+        }
+        if(result1 == false && result2 == false)
+            tvAnswer.setText("Improper input");
+        else {
+            Double val_2 = Double.parseDouble(edtOp2.getText().toString());
+            Double val_1 = Double.parseDouble(edtOp1.getText().toString());
+            Double funct = 0.0;
+            if (Add.isChecked())
+                funct = CalculatorFunctions.addition(val_1, val_2);
+            else if (sub.isChecked())
+                funct = CalculatorFunctions.subtraction(val_1, val_2);
+            else if (mult.isChecked())
+                funct = CalculatorFunctions.mutliplication(val_1, val_2);
+            else if (div.isChecked())
+                funct = CalculatorFunctions.division(val_1, val_2);
+            else if (mod.isChecked())
+                funct = CalculatorFunctions.modula(val_1, val_2);
+            if (funct == null)
+                tvAnswer.setText("Not a Number");
+            else
+                tvAnswer.setText(funct.toString());
+        }
     }
 });
 
