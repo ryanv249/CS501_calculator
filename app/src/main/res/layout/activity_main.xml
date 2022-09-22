@@ -17,9 +17,10 @@
         android:id="@+id/btnCalculate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
+        android:layout_marginTop="28dp"
         android:text="Calculate"
         app:layout_constraintEnd_toEndOf="@+id/edtOp2"
+        app:layout_constraintHorizontal_bias="0.561"
         app:layout_constraintStart_toStartOf="@+id/edtOp2"
         app:layout_constraintTop_toBottomOf="@+id/edtOp2" />
 
@@ -41,15 +42,17 @@
         android:text="0"
         app:layout_constraintBottom_toTopOf="@+id/edtOp2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/edtOp2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="228dp"
-        android:layout_marginEnd="88dp"
+        android:layout_marginTop="184dp"
+        android:layout_marginEnd="100dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="0"
@@ -60,20 +63,11 @@
         android:id="@+id/tvAnswer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="272dp"
         android:text="ANSWER"
         app:layout_constraintStart_toStartOf="@+id/btnCalculate"
         app:layout_constraintTop_toBottomOf="@+id/btnCalculate" />
-
-    <EditText
-        android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        tools:layout_editor_absoluteX="51dp"
-        tools:layout_editor_absoluteY="572dp" />
 
     <EditText
         android:id="@+id/editTextTextPostalAddress"
@@ -81,6 +75,60 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPostalAddress"
-        tools:layout_editor_absoluteX="135dp"
-        tools:layout_editor_absoluteY="554dp" />
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="672dp" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="102dp"
+        tools:layout_editor_absoluteY="613dp" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="150dp"
+        android:layout_height="246dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvAnswer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCalculate">
+
+        <RadioButton
+            android:id="@+id/Add"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="+" />
+
+        <RadioButton
+            android:id="@+id/sub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-" />
+
+        <RadioButton
+            android:id="@+id/mult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="*" />
+
+        <RadioButton
+            android:id="@+id/div"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="/" />
+
+        <RadioButton
+            android:id="@+id/mod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="%" />
+
+    </RadioGroup>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
